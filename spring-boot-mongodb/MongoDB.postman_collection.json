@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "7516008d-d257-4f45-a8d1-0c56f6e45880",
+		"name": "MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user?name=yz&description=mongodb&age=20",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "yz"
+						},
+						{
+							"key": "description",
+							"value": "mongodb"
+						},
+						{
+							"key": "age",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user/612122fb75da162aac4dee19",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"612122fb75da162aac4dee19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user?name=ajiang&description=mongodb&age=19",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ajiang"
+						},
+						{
+							"key": "description",
+							"value": "mongodb"
+						},
+						{
+							"key": "age",
+							"value": "19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user/612122fb75da162aac4dee19",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"612122fb75da162aac4dee19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByAgeBetween",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user/findByAgeBetween?from=12&to=20",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"findByAgeBetween"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "12"
+						},
+						{
+							"key": "to",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByAgeBetweenAndNameEqualsAndDescriptionIsLike",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user/findByAgeBetweenAndNameEqualsAndDescriptionIsLike?from=12&to=20&name=ajiang&description=mongodb",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"findByAgeBetweenAndNameEqualsAndDescriptionIsLike"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "12"
+						},
+						{
+							"key": "to",
+							"value": "20"
+						},
+						{
+							"key": "name",
+							"value": "ajiang"
+						},
+						{
+							"key": "description",
+							"value": "mongodb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "condition",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/user/condition?size=10&page=0&name=yz",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"condition"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "name",
+							"value": "yz"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
