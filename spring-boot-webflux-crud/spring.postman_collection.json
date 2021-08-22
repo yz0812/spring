@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "57b5f9bd-0dc5-4c53-9478-e5e8e1158657",
+		"name": "spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "webflux-mongodb",
+			"item": [
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/user",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserStream",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/user/stream",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"stream"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/user?name=yz&description=mongodb&age=20",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "yz"
+								},
+								{
+									"key": "description",
+									"value": "mongodb"
+								},
+								{
+									"key": "age",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/user/612122fb75da162aac4dee19",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"612122fb75da162aac4dee19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUserById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/user/612122fb75da162aac4dee19",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"612122fb75da162aac4dee19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/user/612122fb75da162aac4dee19?name=yz&description=mongodb&age=20",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"612122fb75da162aac4dee19"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "yz"
+								},
+								{
+									"key": "description",
+									"value": "mongodb"
+								},
+								{
+									"key": "age",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8080/user/condition?size=10&page=0&name=yz",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"condition"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "name",
+									"value": "yz"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
