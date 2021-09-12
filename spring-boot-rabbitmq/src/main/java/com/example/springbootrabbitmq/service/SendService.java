@@ -42,5 +42,5 @@ public interface SendService {
      */
     void route(String msg,String routingKey);
 
-    void confirmCallback(String msg);
+    void confirmCallback(String msg,String routingKey);
 }

@@ -31,4 +31,9 @@ public class SenController {
     public void senRoute(String msg,String routingKey) {
         sendService.route(msg,routingKey);
     }
+
+    @GetMapping("confirmCallback")
+    public void confirmCallback(String msg,String routingKey) {
+        sendService.confirmCallback(msg,routingKey);
+    }
 }

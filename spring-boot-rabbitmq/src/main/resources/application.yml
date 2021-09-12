@@ -8,5 +8,15 @@ spring:
         port: 5672
         username: guest
         password: guest
+        # 发送者开启 return 确认机制
         publisher-returns: true
-        publisher-confirm: true
+        # 发送者开启 confirm 确认机制
+        publisher-confirm-type: correlated
+        # 设置消费端手动 ack
+        listener:
+          simple:
+              acknowledge-mode: manual
+              # 是否支持重试
+              retry:
+                  enabled: true
+

@@ -22,11 +22,15 @@ public interface RabbitmqConstant {
     String ROUTE_TOPIC = "topic.route";
 
     /**
-     *
+     * 交换机
      */
     String ROUTING_KEY_ERROR ="error";
     /**
-     *
+     * 交换机
      */
     String ROUTING_KEY_INFO ="info";
+    /**
+     *
+     */
+    String CONFIRM_CALLBACK="topic.confirm.callback";
 }
