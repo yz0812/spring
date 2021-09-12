@@ -3,6 +3,7 @@ package com.example.springbootrabbitmq.service.impl;
 import com.example.springbootrabbitmq.config.RabbitmqConstant;
 import com.example.springbootrabbitmq.service.SendService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,4 +36,10 @@ public class SendServiceImpl implements SendService {
     public void route(String msg,String routingKey) {
         rabbitTemplate.convertAndSend(RabbitmqConstant.ROUTE_TOPIC,routingKey,msg);
     }
+
+    @Override
+    public void confirmCallback(String msg) {
+
+    }
+
 }
