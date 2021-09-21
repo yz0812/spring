@@ -4,9 +4,10 @@ import com.example.springbootrabbitmq.config.ConfirmCallbackService;
 import com.example.springbootrabbitmq.config.RabbitmqConstant;
 import com.example.springbootrabbitmq.config.ReturnCallbackService;
 import com.example.springbootrabbitmq.service.SendService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.MessageDeliveryMode;
-import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+import static com.example.springbootrabbitmq.config.RabbitmqConstant.*;
+
 @Service
-@RequiredArgsConstructor(onConstructor = @_(@Autowired))
+@AllArgsConstructor
+@Slf4j
 public class SendServiceImpl implements SendService {
 
     private final RabbitTemplate rabbitTemplate;
@@ -76,4 +80,19 @@ public class SendServiceImpl implements SendService {
 
     }
 
+    @Override
+    public void senFanoutExchange(String msg) {
+        rabbitTemplate.convertAndSend(FANOUT_EXCHANG,null,msg);
+        System.out.println("消息发送完毕。");
+    }
+
+    @Override
+    public void sendDirect(String msg,String routingKey) {
+        rabbitTemplate.convertAndSend(DIRECT_EXCHANGE,routingKey,msg);
+    }
+
+    @Override
+    public void sendTopic(String msg,String routingKey) {
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANG,routingKey,msg);
+    }
 }

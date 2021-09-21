@@ -9,21 +9,17 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+import static com.example.springbootrabbitmq.config.RabbitmqConstant.*;
+
 @Slf4j
 @Component
 public class ReceiverMessage {
 
-    @RabbitListener(bindings ={
-            @QueueBinding(
-                    value = @Queue(),
-                    key={RabbitmqConstant.ROUTING_KEY_INFO},
-                    exchange = @Exchange(type = "direct",name=RabbitmqConstant.CONFIRM_CALLBACK)
-            )})
+    @RabbitListener(queues = CONFIRM_CALLBACK_QUEUE)
     public void processHandler(String msg, Channel channel, Message message) throws IOException {
 
         try {
             log.info("小富收到消息：{}", msg);
-
             //发生异常
             double a = 1/0;
             //TODO 具体业务

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("user")
-@RequiredArgsConstructor(onConstructor = @_(@Autowired))
+@AllArgsConstructor
 public class UserController {
 
     private final UserService userService;

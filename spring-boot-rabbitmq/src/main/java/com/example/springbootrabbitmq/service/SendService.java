@@ -43,4 +43,10 @@ public interface SendService {
     void route(String msg,String routingKey);
 
     void confirmCallback(String msg,String routingKey);
+
+    void senFanoutExchange(String msg);
+
+    void sendDirect(String msg,String routingKey);
+
+    void sendTopic(String msg,String routingKey);
 }

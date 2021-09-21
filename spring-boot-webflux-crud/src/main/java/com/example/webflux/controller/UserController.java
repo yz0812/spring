@@ -2,6 +2,7 @@ package com.example.webflux.controller;
 
 import com.example.webflux.entity.User;
 import com.example.webflux.service.UserService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,7 +15,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("user")
-@RequiredArgsConstructor(onConstructor = @_(@Autowired))
+@AllArgsConstructor
 public class UserController {
 
     private final UserService userService;

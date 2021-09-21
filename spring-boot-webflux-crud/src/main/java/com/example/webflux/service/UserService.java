@@ -2,6 +2,7 @@ package com.example.webflux.service;
 
 import com.example.webflux.dao.UserDao;
 import com.example.webflux.entity.User;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,7 +19,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-@RequiredArgsConstructor(onConstructor = @_(@Autowired))
+@AllArgsConstructor
 public class UserService {
 
     private final ReactiveMongoTemplate reactiveMongoTemplate;
