@@ -15,8 +15,8 @@ spring:
         # 设置消费端手动 ack
         listener:
           simple:
+              default-requeue-rejected: false
               acknowledge-mode: manual
               # 是否支持重试
               retry:
                   enabled: true
-

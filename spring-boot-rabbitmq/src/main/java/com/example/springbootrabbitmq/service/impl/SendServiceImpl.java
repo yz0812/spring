@@ -30,28 +30,28 @@ public class SendServiceImpl implements SendService {
 
     @Override
     public void senDirectConnection(String msg) {
-        rabbitTemplate.convertAndSend(RabbitmqConstant.DIRECT_CONNECTION_TOPIC,msg);
+        rabbitTemplate.convertAndSend(RabbitmqConstant.DIRECT_CONNECTION_TOPIC, msg);
     }
 
     @Override
     public void senWork(String msg) {
         for (int i = 0; i < 10; i++) {
-            rabbitTemplate.convertAndSend(RabbitmqConstant.WORK_CONNECTION_TOPIC,i+":"+msg);
+            rabbitTemplate.convertAndSend(RabbitmqConstant.WORK_CONNECTION_TOPIC, i + ":" + msg);
         }
     }
 
     @Override
     public void broadcast(String msg) {
-        rabbitTemplate.convertAndSend(RabbitmqConstant.BROADCAST_TOPIC,"",msg);
+        rabbitTemplate.convertAndSend(RabbitmqConstant.BROADCAST_TOPIC, "", msg);
     }
 
     @Override
-    public void route(String msg,String routingKey) {
-        rabbitTemplate.convertAndSend(RabbitmqConstant.ROUTE_TOPIC,routingKey,msg);
+    public void route(String msg, String routingKey) {
+        rabbitTemplate.convertAndSend(RabbitmqConstant.ROUTE_TOPIC, routingKey, msg);
     }
 
     @Override
-    public void confirmCallback(String msg,String routingKey) {
+    public void confirmCallback(String msg, String routingKey) {
         /**
          * 确保消息发送失败后可以重新返回到队列中
          * 注意：yml需要配置 publisher-returns: true
@@ -71,7 +71,7 @@ public class SendServiceImpl implements SendService {
         /**
          * 发送消息
          */
-        rabbitTemplate.convertAndSend(RabbitmqConstant.CONFIRM_CALLBACK,routingKey, msg,
+        rabbitTemplate.convertAndSend(RabbitmqConstant.CONFIRM_CALLBACK, routingKey, msg,
                 message -> {
                     message.getMessageProperties().setDeliveryMode(MessageDeliveryMode.PERSISTENT);
                     return message;
@@ -82,17 +82,31 @@ public class SendServiceImpl implements SendService {
 
     @Override
     public void senFanoutExchange(String msg) {
-        rabbitTemplate.convertAndSend(FANOUT_EXCHANG,null,msg);
+        rabbitTemplate.convertAndSend(FANOUT_EXCHANG, null, msg);
         System.out.println("消息发送完毕。");
     }
 
     @Override
-    public void sendDirect(String msg,String routingKey) {
-        rabbitTemplate.convertAndSend(DIRECT_EXCHANGE,routingKey,msg);
+    public void sendDirect(String msg, String routingKey) {
+        rabbitTemplate.convertAndSend(DIRECT_EXCHANGE, routingKey, msg);
     }
 
     @Override
-    public void sendTopic(String msg,String routingKey) {
-        rabbitTemplate.convertAndSend(TOPIC_EXCHANG,routingKey,msg);
+    public void sendTopic(String msg, String routingKey) {
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANG, routingKey, msg);
     }
+
+    @Override
+    public void sendMsg(String msg) {
+        rabbitTemplate.convertSendAndReceive(BUSINESS_EXCHANGE_NAME, "", msg);
+    }
+
+    @Override
+    public void sendDelayMsg(String msg, Integer delayTime) {
+        rabbitTemplate.convertAndSend(DELAYED_EXCHANGE_NAME, DELAYED_ROUTING_KEY, msg, a ->{
+            a.getMessageProperties().setDelay(delayTime);
+            return a;
+        });
+    }
+
 }

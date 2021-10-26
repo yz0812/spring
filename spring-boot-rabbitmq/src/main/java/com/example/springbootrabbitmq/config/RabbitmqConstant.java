@@ -51,4 +51,21 @@ public interface RabbitmqConstant {
     String CONFIRM_CALLBACK = "topic.confirm.callback";
 
     String CONFIRM_CALLBACK_QUEUE = "topic.confirm.callback.queue";
+
+    String BUSINESS_EXCHANGE_NAME = "dead.letter.demo.simple.business.exchange";
+    String BUSINESS_QUEUEA_NAME = "dead.letter.demo.simple.business.queuea";
+    String BUSINESS_QUEUEB_NAME = "dead.letter.demo.simple.business.queueb";
+    String DEAD_LETTER_EXCHANGE = "dead.letter.demo.simple.deadletter.exchange";
+    String DEAD_LETTER_QUEUEA_ROUTING_KEY = "dead.letter.demo.simple.deadletter.queuea.routingkey";
+    String DEAD_LETTER_QUEUEB_ROUTING_KEY = "dead.letter.demo.simple.deadletter.queueb.routingkey";
+    String DEAD_LETTER_QUEUEA_NAME = "dead.letter.demo.simple.deadletter.queuea";
+    String DEAD_LETTER_QUEUEB_NAME = "dead.letter.demo.simple.deadletter.queueb";
+
+
+     String DELAYED_QUEUE_NAME = "delay.queue.demo.delay.queue";
+     String DELAYED_EXCHANGE_NAME = "delay.queue.demo.delay.exchange";
+     String DELAYED_ROUTING_KEY = "delay.queue.demo.delay.routingkey";
+
+
+
 }
