@@ -1,0 +1,25 @@
+
+spring:
+  datasource:
+    username: root
+    password: ajiang989
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mysql.ip:118.31.114.52}:2406/flowable?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+
+flowable:
+  #关闭定时任务JOB
+  async-executor-activate: false
+  #  将databaseSchemaUpdate设置为true。当Flowable发现库与数据库表结构不一致时，会自动将数据库表结构升级至新版本。
+  database-schema-update: true
+
+management:
+  endpoint:
+    flowable:
+      enabled: true
+
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+server:
+  port: 8081
