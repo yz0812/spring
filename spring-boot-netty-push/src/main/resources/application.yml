@@ -1,0 +1,11 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-boot-netty-push
+  redis:
+    host: 118.31.114.52
+    database: 1
+    port: 6679
+    password: ajiang989
+    timeout: 3000
